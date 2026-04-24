@@ -1,4 +1,4 @@
-' This is the standard install script for the AVIS engagement.
+' This is the standard install script for the  engagement.
 ' Simply indicate the Package Name, Vendor, and Version below.
 ' Package Name:   Oracle_Java8Update_8.0.4010.10_x86_EN
 ' Package Vendor: Oracle 
@@ -19,8 +19,8 @@ ScriptFullName = wscript.scriptFullname
 ScriptFolderName = left(scriptFullName, InStrRev(ScriptFullName, "\"))
 oEnv("SEE_MASK_NOZONECHECKS") = 1
 
-LogFolder = strsysdir & "\DXC\"
-LogFolders = strsysdir & "\DXC\SCCM\"
+LogFolder = strsysdir & "\\"
+LogFolders = strsysdir & "\\SCCM\"
 
 If Not(oFS.FolderExists(LogFolder)) Then
     oFS.CreateFolder(LogFolder)
@@ -62,7 +62,7 @@ For Each objSoftware in colSoftware
     appName = objSoftware.Name
     appVersion = objSoftware.version
     logName = appVendor & "_" & appName & "_" & appVersion & "_"
-    logFolder = strSysDir & "\DXC\SCCM\"
+    logFolder = strSysDir & "\\SCCM\"
     
     subCreateFolderPath logFolder
 
@@ -120,7 +120,7 @@ Set FLD = oFS.GetFolder(strFromPathName)
 For Each aItem In FLD.Files 
    If LCase(Right(Cstr(aItem.Name), 3)) = "exe" Then
    
-strcmd = chr(34) & aItem & Chr(34) & " /s INSTALL_SILENT=1 /L "  & chr(34) & strSysDir & "\DXC\SCCM\Oracle_Java8Update_401_8.0.4010.10_x86_EN_Install.log" & chr(34)
+strcmd = chr(34) & aItem & Chr(34) & " /s INSTALL_SILENT=1 /L "  & chr(34) & strSysDir & "\\SCCM\Oracle_Java8Update_401_8.0.4010.10_x86_EN_Install.log" & chr(34)
 rtnVal = objShell.Run(strcmd,0, True)
   
    End If
