@@ -95,7 +95,7 @@ If IsInstalled("{4795500B-CE63-49A9-BF42-5343A6E607AF}") Then
 		
 			iReturn= objShell.Run(strCmdLine, 0, true)		
 			If (iReturn = 0) Or (iReturn = 3010) Then
-			    objShell.RegDelete "HKEY_LOCAL_MACHINE\SYSTEM\LUMILEDS\Packages\RedCloak 2.8.1.0\"
+			    objShell.RegDelete "HKEY_LOCAL_MACHINE\SYSTEM\\Packages\RedCloak 2.8.1.0\"
 				objShell.RegDelete "HKEY_LOCAL_MACHINE\SOFTWARE\RedCloak\Hostel\"
 				DebugLog 0,"DellSecureWorks RedCloak  2.8.1.0 EN uninstalled successfully. Return Code : " & iReturn
 			Else
@@ -132,7 +132,7 @@ Else
 	DebugLog 0,"DellSecureWorks RedCloak  2.8.5.0 EN with code {990A15D3-201D-4B3B-981A-1EA2D0ED3721} Is Not found On the machine."
 End If
 
-objShell.RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\LUMILEDS\Packages\DellSecureWorks RedCloak Uninstallation\Uninstall", "01", "REG_SZ"
+objShell.RegWrite "HKEY_LOCAL_MACHINE\SYSTEM\\Packages\DellSecureWorks RedCloak Uninstallation\Uninstall", "01", "REG_SZ"
 
 DebugLog 0, "Writing Detection key"
 
