@@ -1,4 +1,4 @@
-' This is the standard install script for the DXC/AVIS engagement.
+' This is the standard install script for the / engagement.
 ' Simply indicate the Package Name, Vendor, and Version below.
 ' Package Name: OmnivexMoxie_7.10.8627.1_x64_EN
 ' Package Vendor: Omnivex
@@ -21,8 +21,8 @@ ScriptFolderName = left(scriptFullName, InStrRev(ScriptFullName, "\"))
 oEnv("SEE_MASK_NOZONECHECKS") = 1
 '##################################################################################################################################
 
-strLogFolder = strSysDir & "\DXC\"
-strLogFolder1 = strSysDir & "\DXC\SCCM\"
+strLogFolder = strSysDir & "\\"
+strLogFolder1 = strSysDir & "\\SCCM\"
 If Not(oFSO.FolderExists(strLogFolder)) Then 
 oFSO.CreateFolder(strLogFolder)
 End If
@@ -49,19 +49,19 @@ If IsInstalled("{E5840E1F-2F18-4443-BED6-7BEE6ED14EB6}") Then
 		subStopService ("Omnivex Moxie Client Logging Agent")		
 	End If
 		
-	strcmd1 =  "msiexec.exe /x" & "{E5840E1F-2F18-4443-BED6-7BEE6ED14EB6}" & " /qn /l*v " & chr(34) & "%SystemDrive%\DXC\SCCM\Omnivex_Moxie_7.2.6368.1_EN_Uninstall.log" & chr(34)
+	strcmd1 =  "msiexec.exe /x" & "{E5840E1F-2F18-4443-BED6-7BEE6ED14EB6}" & " /qn /l*v " & chr(34) & "%SystemDrive%\\SCCM\Omnivex_Moxie_7.2.6368.1_EN_Uninstall.log" & chr(34)
 	rtnVal = oShell.Run(strcmd1,0, True)
 	WScript.sleep(5000)
 	
 	If rtnVal = 0 Or rtnVal = 3010 Then
 		If IsInstalled("{D4AD39AD-091E-4D33-BB2B-59F6FCB8ADC3}") then
-			strcmd2 =  "msiexec.exe /x" & "{D4AD39AD-091E-4D33-BB2B-59F6FCB8ADC3}" & " /qn /l*v " & chr(34) & "%SystemDrive%\DXC\SCCM\MSFTSQLServerCompact3.5SP2_x64_EN_Uninstall.log" & chr(34)
+			strcmd2 =  "msiexec.exe /x" & "{D4AD39AD-091E-4D33-BB2B-59F6FCB8ADC3}" & " /qn /l*v " & chr(34) & "%SystemDrive%\\SCCM\MSFTSQLServerCompact3.5SP2_x64_EN_Uninstall.log" & chr(34)
 			rtnVal1 = oShell.Run(strcmd2,0, True)
 			WScript.sleep(5000)
 		End If
 		
 		If IsInstalled("{3A9FC03D-C685-4831-94CF-4EDFD3749497}") then
-			strcmd3 =  "msiexec.exe /x" & "{3A9FC03D-C685-4831-94CF-4EDFD3749497}" & " /qn /l*v " & chr(34) & "%SystemDrive%\DXC\SCCM\MSFTSQLServerCompact3.5SP2_EN_Uninstall.log" & chr(34)
+			strcmd3 =  "msiexec.exe /x" & "{3A9FC03D-C685-4831-94CF-4EDFD3749497}" & " /qn /l*v " & chr(34) & "%SystemDrive%\\SCCM\MSFTSQLServerCompact3.5SP2_EN_Uninstall.log" & chr(34)
 			rtnVal2 = oShell.Run(strcmd3,0, True)
 			WScript.sleep(5000)
 		End If
@@ -82,7 +82,7 @@ If regExists("HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\12.
 	
 	if (strKey1 < "v12.0.21005.01") Then
 		On Error Resume Next
-		strcmd1 = chr(34) & ScriptFolderName & "vcredist2013_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\DXC\SCCM\Microsoft_VisualC++2013_12.0.21005.01_x64_EN_Install.log" & chr(34)
+		strcmd1 = chr(34) & ScriptFolderName & "vcredist2013_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\\SCCM\Microsoft_VisualC++2013_12.0.21005.01_x64_EN_Install.log" & chr(34)
 		'MsgBox (strcmd1)
 		rtnVal1 = oShell.Run(strcmd1,0, True)
 		WScript.sleep(5000)
@@ -90,7 +90,7 @@ If regExists("HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\12.
 
 Else
 	On Error Resume Next
-	strcmd1 = chr(34) & ScriptFolderName & "vcredist2013_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\DXC\SCCM\Microsoft_VisualC++2013_12.0.21005.01_x64_EN_Install.log" & chr(34)
+	strcmd1 = chr(34) & ScriptFolderName & "vcredist2013_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\\SCCM\Microsoft_VisualC++2013_12.0.21005.01_x64_EN_Install.log" & chr(34)
 	rtnVal1 = oShell.Run(strcmd1,0, True)
 	WScript.sleep(5000)
 End If
@@ -102,21 +102,21 @@ If regExists("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtime
 	
 	if (strKey2 < "v14.28.29325.02") Then
 		On Error Resume Next
-		strcmd2 = chr(34) & ScriptFolderName & "vcredist2019_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\DXC\SCCM\Microsoft_VisualC++2015-2019_14.28.29325.02_x64_EN_Install.log" & chr(34)
+		strcmd2 = chr(34) & ScriptFolderName & "vcredist2019_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\\SCCM\Microsoft_VisualC++2015-2019_14.28.29325.02_x64_EN_Install.log" & chr(34)
 		rtnVal2 = oShell.Run(strcmd2,0, True)
 		WScript.sleep(5000)
 	End If
 
 Else
 	On Error Resume Next
-	strcmd2 = chr(34) & ScriptFolderName & "vcredist2019_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\DXC\SCCM\Microsoft_VisualC++2015-2019_14.28.29325.02_x64_EN_Install.log" & chr(34)
+	strcmd2 = chr(34) & ScriptFolderName & "vcredist2019_x64.exe" & Chr(34) & " /install /quiet /norestart /log " & chr(34) & "%SystemDrive%\\SCCM\Microsoft_VisualC++2015-2019_14.28.29325.02_x64_EN_Install.log" & chr(34)
 	rtnVal2 = oShell.Run(strcmd2,0, True)
 	WScript.sleep(5000)
 End If
 
 '############################################################ INSTALLATION #################################################################################
 
-strcmd1  = "msiexec.exe /i " & chr(34) & ScriptFolderName & "Omnivex Moxie Setup.msi" & chr(34) & " TRANSFORMS="& chr(34) & ScriptFolderName & "OmnivexMoxie_7.10.8627.1_x64_EN.Mst" & chr(34)  &" /qn /l*v " & chr(34) & "%SystemDrive%\DXC\SCCM\OmnivexMoxie_7.10.8627.1_x64_EN_Install.log" & chr(34)
+strcmd1  = "msiexec.exe /i " & chr(34) & ScriptFolderName & "Omnivex Moxie Setup.msi" & chr(34) & " TRANSFORMS="& chr(34) & ScriptFolderName & "OmnivexMoxie_7.10.8627.1_x64_EN.Mst" & chr(34)  &" /qn /l*v " & chr(34) & "%SystemDrive%\\SCCM\OmnivexMoxie_7.10.8627.1_x64_EN_Install.log" & chr(34)
 rtnVal = oShell.Run(strcmd1,0, True)
 
 WScript.sleep(10000)
