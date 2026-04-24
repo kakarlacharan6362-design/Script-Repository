@@ -1,4 +1,4 @@
-' This is the standard Uninstall script for the DXC/Ahold engagement.
+' This is the standard Uninstall script for the / engagement.
 ' Simply indicate the Package Name, Vendor, and Version below.
 ' Package Name: Autodesk_AutoCADElectrical2023_20.0.73.0_x64_EN
 ' Package Vendor: Autodesk
@@ -317,8 +317,8 @@ End If
 
 If Not regExists("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{DE663064-1A7C-3129-832C-6D36950C3559}\") Then	
 		
-		If regExists("HKEY_LOCAL_MACHINE\SOFTWARE\Ahold\AutoCADElectrical2023\") then
-		objShell.Regdelete "HKEY_LOCAL_MACHINE\SOFTWARE\Ahold\AutoCADElectrical2023\"
+		If regExists("HKEY_LOCAL_MACHINE\SOFTWARE\\AutoCADElectrical2023\") then
+		objShell.Regdelete "HKEY_LOCAL_MACHINE\SOFTWARE\\AutoCADElectrical2023\"
 		End If
 
 End IF
